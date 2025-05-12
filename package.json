@@ -1,0 +1,31 @@
+{
+  "name": "link-preview-server",
+  "version": "1.0.0",
+  "main": "server.mjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "express": "^5.1.0",
+    "got": "^14.4.7",
+    "image-size": "^2.0.2",
+    "metascraper": "^5.46.15",
+    "metascraper-author": "^5.46.15",
+    "metascraper-date": "^5.46.15",
+    "metascraper-description": "^5.46.15",
+    "metascraper-image": "^5.46.15",
+    "metascraper-logo": "^5.46.15",
+    "metascraper-publisher": "^5.46.15",
+    "metascraper-title": "^5.46.15",
+    "metascraper-url": "^5.46.15",
+    "metascraper-youtube": "^5.46.15",
+    "node-cache": "^5.1.2"
+  }
+}
