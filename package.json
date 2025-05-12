@@ -4,7 +4,7 @@
   "main": "server.mjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.mjs"
+    "start": "nodemon server.mjs"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,8 @@
     "metascraper-title": "^5.46.15",
     "metascraper-url": "^5.46.15",
     "metascraper-youtube": "^5.46.15",
-    "node-cache": "^5.1.2"
+    "node-cache": "^5.1.2",
+    "nodemon": "^3.1.10",
+    "puppeteer": "^24.8.2"
   }
 }

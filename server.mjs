@@ -183,6 +183,27 @@ app.get("/api/preview", async (req, res) => {
   }
 });
 
+// Dans server.mjs
+app.get("/api/proxy", async (req, res) => {
+  const { url } = req.query;
+
+  if (!url) return res.status(400).json({ error: "URL manquante" });
+  if (!isValidUrl(url)) return res.status(400).json({ error: "URL invalide" });
+
+  try {
+    const response = await axios.get(url, {
+      responseType: "stream", // Récupérer comme flux pour les fichiers binaires
+    });
+    res.setHeader("Content-Type", response.headers["content-type"]);
+    response.data.pipe(res); // Transférer le fichier au client
+  } catch (error) {
+    console.error("Erreur lors du proxy :", error.message);
+    res
+      .status(500)
+      .json({ error: "Erreur lors de la récupération du fichier" });
+  }
+});
+
 // Gestion des erreurs globales
 app.use((err, req, res, next) => {
   console.error("Erreur serveur :", err);
@@ -190,7 +211,7 @@ app.use((err, req, res, next) => {
 });
 
 // Démarrer le serveur
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Serveur démarré sur le port ${PORT}`);
 });
